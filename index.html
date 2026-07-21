@@ -3,224 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>أمي الغالية 🌸</title>
+    <title>لأحلى تسنيم 💖</title>
+    <link rel="stylesheet" href="style.css">
     <!-- خط Google Tajawal -->
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
-    <!-- مكتبة الصواريخ والألعاب النارية -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
-    <style>
-        :root {
-            --bg-color: #1a0813;
-            --card-bg: #2d0d21;
-            --primary-pink: #d4709a;
-            --accent-pink: #ff4b8b;
-            --text-color: #ffffff;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 15px;
-            overflow-x: hidden;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 20px;
-            padding: 30px 20px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(212, 112, 154, 0.3);
-            width: 100%;
-            max-width: 420px;
-        }
-
-        h1 {
-            font-size: 24px;
-            color: #fff;
-            margin-bottom: 20px;
-            line-height: 1.4;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        /* خانة إدخال الاسم */
-        .input-section {
-            margin-top: 15px;
-            background: rgba(0, 0, 0, 0.2);
-            padding: 20px 15px;
-            border-radius: 15px;
-        }
-
-        .input-section label {
-            display: block;
-            font-size: 16px;
-            color: var(--primary-pink);
-            margin-bottom: 12px;
-            font-weight: bold;
-        }
-
-        .input-field {
-            width: 100%;
-            padding: 12px 15px;
-            border-radius: 10px;
-            border: 1px solid var(--primary-pink);
-            background: #1a0813;
-            color: #fff;
-            font-family: 'Tajawal', sans-serif;
-            font-size: 16px;
-            text-align: center;
-            outline: none;
-            margin-bottom: 12px;
-        }
-
-        .submit-btn {
-            background-color: var(--accent-pink);
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-            width: 100%;
-            box-shadow: 0 4px 10px rgba(255, 75, 139, 0.3);
-        }
-
-        .error-msg {
-            color: #ff6b6b;
-            font-size: 13px;
-            margin-top: 8px;
-        }
-
-        /* محتوى الرسالة بعد كتابة الاسم */
-        .mother-letter {
-            font-size: 16px;
-            color: #ffffff;
-            line-height: 1.9;
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 15px;
-            border-right: 4px solid var(--accent-pink);
-            text-align: justify;
-            margin: 15px 0;
-        }
-
-        .footer-tag {
-            display: inline-block;
-            margin-top: 10px;
-            font-size: 14px;
-            color: #ffd700;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <div class="card">
-        <!-- العنوان الرئيسي -->
-        <h1>امي الغاليه هي الدنيا كلها 🌸❤️</h1>
-        
-        <!-- الواجهة الأولى: خانة إدخال الاسم -->
-        <div id="initial-section">
-            <div class="input-section">
-                <label>اسم ابنك 💭</label>
-                <input type="text" id="sonName" class="input-field" placeholder="اكتبي الاسم هنا...">
-                <button class="submit-btn" onclick="checkSonName()">افتحي المفاجأة ✨</button>
-                <p class="error-msg hidden" id="error">جربي اكتب اسم ابنك صح (يسري) ❤️</p>
+        <!-- عنوان الهدية الشاشة الأولى -->
+        <h1 id="title-text">لأحلى تسنيم في الدنيا ✨</h1>
+        <p id="sub-text">اضغطي على الهدية علشان تفتحيها 🎁</p>
+
+        <!-- علبة الهدية -->
+        <div class="gift-box" id="gift-btn" onclick="openSurprise()">
+            🎁
+        </div>
+
+        <!-- محتوى المفاجأة بعد الضغط على الهدية -->
+        <div class="message-container hidden" id="surprise-content">
+            <div class="message-box">
+                <p class="love-letter">
+                    انتي أجمل إنسانة في الدنيا وأحلى واحدة شافتها عيوني يا أجمل بنت في الحياة ❤️🌸
+                </p>
+            </div>
+
+            <!-- الزرار السفلي -->
+            <div class="love-action">
+                <span class="hint-text">دوس عليا 👇</span>
+                <button class="love-btn" onclick="showFinalLove()">بحبك 💕</button>
             </div>
         </div>
 
-        <!-- الواجهة الثانية: الرسالة والصواريخ والقلوب -->
-        <div id="secret-message" class="hidden">
-            <div class="mother-letter">
-                امي الغاليه هي الدنيا كلها هي الشفاء لي من وجعي هي التي تمسح دموعي من عيني هي الحضن الدافي الي يحميني من وجع الدنيا هي كل الدنيا وما فيها امي الغاليه ادعو الله ان يحفظك لنا وان تكوني راضيه عني ❤️🤲✨
+        <!-- النوافذ المنبثقة للرسائل (Popup Alert) -->
+        <div class="popup-modal hidden" id="popup">
+            <div class="popup-content">
+                <h2>وانا كمان يعمري يروحي يامرتي 💍🥰✨</h2>
+                <button class="close-btn" onclick="closePopup()">بحبك أكتر ❤️</button>
             </div>
-            <span class="footer-tag">ربنا يحفظك ويخليكي لينا يا أمي 💖</span>
         </div>
     </div>
 
-    <script>
-        function checkSonName() {
-            const input = document.getElementById('sonName').value.trim();
-            const error = document.getElementById('error');
-            
-            // بيقبل اسم يسري بأي شكل مع أو بدون مسافات
-            if (input === "يسري" || input === "يسري " || input === "يسري❤️") {
-                error.classList.add('hidden');
-                document.getElementById('initial-section').classList.add('hidden');
-                document.getElementById('secret-message').classList.remove('hidden');
-                
-                // تشغيل الألعاب النارية والقلوب
-                launchFireworks();
-                createHearts();
-            } else {
-                error.classList.remove('hidden');
-            }
-        }
-
-        // الألعاب النارية والصواريخ 🔥
-        function launchFireworks() {
-            var duration = 3.5 * 1000;
-            var end = Date.now() + duration;
-
-            (function frame() {
-                confetti({
-                    particleCount: 6,
-                    angle: 60,
-                    spread: 60,
-                    origin: { x: 0 }
-                });
-                confetti({
-                    particleCount: 6,
-                    angle: 120,
-                    spread: 60,
-                    origin: { x: 1 }
-                });
-
-                if (Date.now() < end) {
-                    requestAnimationFrame(frame);
-                }
-            })();
-        }
-
-        // تساقط القلوب 💖
-        function createHearts() {
-            for (let i = 0; i < 25; i++) {
-                const heart = document.createElement('div');
-                heart.innerHTML = '💖';
-                heart.style.position = 'fixed';
-                heart.style.left = Math.random() * 100 + 'vw';
-                heart.style.top = '-20px';
-                heart.style.fontSize = (Math.random() * 18 + 15) + 'px';
-                heart.style.zIndex = '9999';
-                heart.style.transition = 'transform 3.5s linear, opacity 3.5s';
-                
-                document.body.appendChild(heart);
-                
-                setTimeout(() => {
-                    heart.style.transform = `translateY(105vh) rotate(${Math.random() * 360}deg)`;
-                    heart.style.opacity = '0';
-                }, 50);
-                
-                setTimeout(() => {
-                    heart.remove();
-                }, 3550);
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
