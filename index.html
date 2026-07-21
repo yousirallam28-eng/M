@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لأحلى تسنيم 💖</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- خط Google Tajawal -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="card">
+        <!-- عنوان الهدية الشاشة الأولى -->
+        <h1 id="title-text">لأحلى تسنيم في الدنيا ✨</h1>
+        <p id="sub-text">اضغطي على الهدية علشان تفتحيها 🎁</p>
+
+        <!-- علبة الهدية -->
+        <div class="gift-box" id="gift-btn" onclick="openSurprise()">
+            🎁
+        </div>
+
+        <!-- محتوى المفاجأة بعد الضغط على الهدية -->
+        <div class="message-container hidden" id="surprise-content">
+            <div class="message-box">
+                <p class="love-letter">
+                    انتي أجمل إنسانة في الدنيا وأحلى واحدة شافتها عيوني يا أجمل بنت في الحياة ❤️🌸
+                </p>
+            </div>
+
+            <!-- الزرار السفلي -->
+            <div class="love-action">
+                <span class="hint-text">دوس عليا 👇</span>
+                <button class="love-btn" onclick="showFinalLove()">بحبك 💕</button>
+            </div>
+        </div>
+
+        <!-- النوافذ المنبثقة للرسائل (Popup Alert) -->
+        <div class="popup-modal hidden" id="popup">
+            <div class="popup-content">
+                <h2>وانا كمان يعمري يروحي يامرتي 💍🥰✨</h2>
+                <button class="close-btn" onclick="closePopup()">بحبك أكتر ❤️</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
